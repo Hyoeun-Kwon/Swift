@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  App_Quiz02Smile
+//  AppQuiz2_Smile
 //
 //  Created by HyoEun Kwon on 2021/07/14.
 //

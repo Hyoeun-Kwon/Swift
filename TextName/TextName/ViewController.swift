@@ -22,15 +22,20 @@ class ViewController: UIViewController {
     }
 
     
-    
-    @IBAction func btnSend(_ sender: Any) {
-        lblWelcome.text = "Welcome! \(tfName.text!)"
-        lblMessage.text = "텍스트를 추가했습니다!"
+    @IBAction func btnSend(_ sender: UIButton) {
+        if tfName.text?.count == 0 {
+            lblMessage.text = "텍스트를 입력하세요!"
+        }else{
+            lblWelcome.text = "Welcome! \(tfName.text!)"
+            lblMessage.text = "텍스트를 추가했습니다!"
+        }
+        
     }
     
-    
-    
-    @IBAction func btnClear(_ sender: Any) {
+    @IBAction func btnClear(_ sender: UIButton) {
+        lblWelcome.text = "Welcome!"
+        tfName.text?.removeAll()
+        lblMessage.text = "화면 초기상태 입니다."
     }
     
 

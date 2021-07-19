@@ -22,7 +22,7 @@ str2 = "Google"
 str2 = "123"
 //str2 = nil
 // nil을 넣을 수 있는 변수를 선언하겠다 : ? 사용
-//print(str2)
+//print(str2) 결과 값 Optional("123")
 //print(str2!)
 //print(str2 as Any)
 

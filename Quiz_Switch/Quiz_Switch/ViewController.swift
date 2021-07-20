@@ -39,12 +39,12 @@ class ViewController: UIViewController {
         switch sender.isOn{
         case true:
             newWidth = imgView.frame.width * scale
-            newHeight = imgView.frame.width * scale
+            newHeight = imgView.frame.height * scale
             lblZoom.text = "전구 축소"
             
         default:
             newWidth = imgView.frame.width / scale
-            newHeight = imgView.frame.width / scale
+            newHeight = imgView.frame.height / scale
             lblZoom.text = "전구 확대"
         }
         

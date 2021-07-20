@@ -204,4 +204,4 @@ secondClassInstance.property = 2
 
 print("first : \(firstClassInstance.property)") // first : 2
 print("second : \(secondClassInstance.property)") // second : 2
-//second에만 값을 줬는데 1도 바뀜
+//second에만 값을 줬는데 1도 바뀜0

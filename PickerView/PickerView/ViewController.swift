@@ -68,12 +68,14 @@ extension ViewController: UIPickerViewDataSource{
 // 데이터 넣기(이름구성), 액션
 extension ViewController: UIPickerViewDelegate{
     // PickerView에 Title 입히기
+    //titleForRow
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return imageFileName[row] // 배열로 잡은것, for문을 안돌려도 알아서 구성 해옴
     }
     
     
     // pickerView에 Image 선택 했을 경우
+    //didSelectRow
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         lblImageFileName.text = imageFileName[row]
         imgView.image = imageArray[row]

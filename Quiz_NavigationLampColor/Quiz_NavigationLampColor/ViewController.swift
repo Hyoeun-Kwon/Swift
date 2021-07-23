@@ -71,19 +71,4 @@ extension ViewController: SelectDelegate{
         }
     }//
     
-    
-//    // 전구 핑크
-//    func didImageRedDone(_ controller: SelectViewController, isOn: Bool) {
-//        if self.isOn {
-//            if isRed {
-//                imgView.image = imgRed
-//                self.isRed = true
-//            }else{
-//                imgView.image = imgOn
-//                self.isRed = false
-//            }
-//        }else {
-//            imgView.image = imgOff
-//        }
-//    }
 }//-------

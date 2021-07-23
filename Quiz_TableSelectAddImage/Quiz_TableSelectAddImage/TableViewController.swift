@@ -1,22 +1,22 @@
 //
 //  TableViewController.swift
-//  Table
+//  Quiz_TableSelectAddImage
 //
-//  Created by HyoEun Kwon on 2021/07/22.
+//  Created by HyoEun Kwon on 2021/07/23.
 //
 
 import UIKit
 
-// 변수 선언을 Class 정의 전에 한다. : 프로젝트가 관리하는 변수 (처음뜨는 화면에 정의)
-// Class 밖에 선언한 이유 _ 전체 프로젝트에서 사용 하기 위함
-var items = ["책 구매", "철수와 약속", "스터디 준비하기"]
+// item 변수 선언
+var items = ["책 구매","철수와 약속","스터디 준비하기"]
 var itemsImageFile = ["cart.png","clock.png","pencil.png"]
+
+
 
 class TableViewController: UITableViewController {
 
-    // 연결시 꼭 UITableView 라고 나와야 함 !! (TableCell 안됨!)
-    @IBOutlet var tvListView: UITableView!
     
+    @IBOutlet var tvListView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,10 @@ class TableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        //------
-        // Edit버튼을 만들고 삭제 기능 추가하기, 왼쪽으로 배치
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-  
+
     }
+    
     
     //------>*********** cycle *************
     // 화면이 다시 띄워졌을때 실행되는것 ( 계속 사용 )
@@ -40,18 +38,14 @@ class TableViewController: UITableViewController {
         // 테이블리스트 화면 재구성 (numberOfSections, tableView, 2개 (cell 구성 _까지 3개 작동)
         tvListView.reloadData()
     }
-    
-
 
     // MARK: - Table view data source
-    // -------------------------------------------- cell 구성 시작
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    // Section당 열의 갯수
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return items.count
@@ -67,7 +61,7 @@ class TableViewController: UITableViewController {
         
         return cell
     }
-    // -------------------------------------------- cell 구성 끝
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -76,7 +70,7 @@ class TableViewController: UITableViewController {
         return true
     }
     */
-    
+
     // -----------
     // Table 셀 삭제 !!
     // Override to support editing the table view.
@@ -92,15 +86,13 @@ class TableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
     // 삭제시 "Delete"를 "삭제"글씨로 바꾸기
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "삭제"
     }
-    
-    
     
     //목록 순서 바꾸기
     // from, to
@@ -123,9 +115,8 @@ class TableViewController: UITableViewController {
         items.insert(itemToMove, at: to.row)
         itemsImageFile.insert(itemImageToMove, at: to.row)
         
-        // 이동은 배열의 insert 
+        // 이동은 배열의 insert
     }
-
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -134,32 +125,27 @@ class TableViewController: UITableViewController {
         return true
     }
     */
-    
-    
-    
 
-    //-------Detail View
+    //Detail View
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { // for 는 사용자에게 보여지기 위한 아규먼트
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
         if segue.identifier == "sgDetail"{
-            // 몇번째 클릭했는지 정보 가져오기 - sender를 통해
-            let cell = sender as! UITableViewCell  // cell 타입으로 바꿔서 가져 올 것
-            // tableview는 cell들의 집합임
-            let indexPath = self.tvListView.indexPath(for: cell) //prepare는 indexPath가 없음
-            // 몇번째 클릭한거야  알 수 있음
-            //--------------------------셀 정보 알기
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tvListView.indexPath(for: cell)
+            // -> 몇번째 클릭한거야
+           // print(type(of: indexPath))
             
-            //-------------연결, 어디로 줄지
-            let detailView = segue.destination as! DetailViewController // segut통해 detailview 연결
-            detailView.receiveItems(items[indexPath!.row])
+            let detailView = segue.destination as! DetailViewController
+            detailView.receiveItems(items[indexPath!.row], itemsImageFile[indexPath!.row])
+
         }
-  
-    }
+        
+   
+    }//prepare
     
 
 }

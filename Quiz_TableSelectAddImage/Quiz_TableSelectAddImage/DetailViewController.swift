@@ -1,39 +1,40 @@
 //
 //  DetailViewController.swift
-//  Table
+//  Quiz_TableSelectAddImage
 //
-//  Created by HyoEun Kwon on 2021/07/22.
+//  Created by HyoEun Kwon on 2021/07/23.
 //
 
 import UIKit
 
 class DetailViewController: UIViewController {
 
-    // prepare 로 넘긴 값을 받는 변수
+    
+    
+    @IBOutlet weak var detailImgView: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
+    
     var receiveItem = ""
+    var receiveItemImage = ""
     
-
-    //label 연결
-    @IBOutlet weak var lblItem: UILabel!
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 화면에 띄워주기
-        lblItem.text = receiveItem
+        lblTitle.text = receiveItem
+        detailImgView.image = UIImage(named: receiveItemImage)
         
     }
     
-    //TableViewController가 이 함수를 실행할 것
-    // item: 사용자가 클릭한 정보
-    func receiveItems(_ item: String){
+    
+    func receiveItems(_ item: String, _ itemImage: String){
         receiveItem = item
-        
+        receiveItemImage = itemImage
+  
     }
     
     
     
+
     /*
     // MARK: - Navigation
 

@@ -51,7 +51,7 @@ class TableViewController: UITableViewController {
         return 1
     }
     
-    // Section당 열의 갯수
+    // Section당 열의 갯수 / 화면에 몇개 나올거다!
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return items.count

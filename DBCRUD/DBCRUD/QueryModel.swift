@@ -1,14 +1,14 @@
 //
-//  JsonModel.swift
-//  ServerJson_01
+//  QueryModel.swift
+//  DBCRUD
 //
-//  Created by HyoEun Kwon on 2021/07/27.
+//  Created by HyoEun Kwon on 2021/07/28.
 //
 
-// 불러오는 class 로 json data를 넘겨주는 방법
 import Foundation
 
-protocol JsonModelProtocol{
+//쿼리모델이 데이터를 받아서 테이블 컨트롤러에 데이터를 주기 위해필요한 것 _ 입력, 수정 등은 필요없음
+protocol QueryModelProtocol{
     // prepare 말고! 넘겨주기 위해 protocol 사용
     // protocol : 함수이름만 있음
     func itemDownloaded(items: NSArray)
@@ -16,10 +16,10 @@ protocol JsonModelProtocol{
 }
 
 
-class JsonModel{
+class QueryModel{
     //jsonmodel 이 portocol 을 가지고 있음
-    var delegate: JsonModelProtocol! // data를 받아오는걸 연결하나!? ___( 나 )
-    let urlPath = "http://192.168.245.130:8080/ios/student.json"
+    var delegate: QueryModelProtocol!
+    let urlPath = "http://192.168.237.130:8080/ios/student_query_ios.jsp"
     
     func downloadItems(){
         // 서버에서 데이터 받아오는 동안 다른 일을 해야지!
@@ -42,6 +42,7 @@ class JsonModel{
         task.resume()
     }
     
+    //바뀔게 없음! 형태가 배열안에 딕셔너리라서
     //어싱크 방식 은 dispatch 가 들어감 , parsing 함수
     func parseJSON(_ data: Data){
         var jsonResult = NSArray()//어레이
@@ -99,5 +100,3 @@ class JsonModel{
         
     }
 }
-
-

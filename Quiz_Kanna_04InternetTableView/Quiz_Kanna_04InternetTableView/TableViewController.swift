@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Kanna
+import Kanna //<<<<<
 
 class TableViewController: UITableViewController {
     
@@ -30,13 +30,13 @@ class TableViewController: UITableViewController {
     // 화면 뜬 다음에 동작하는 애임 , viewDidLoad는 화면 뜨기 전에 딱 한번만 동작하는 애
     override func viewWillAppear(_ animated: Bool) {
         // 테이블리스트 화면 재구성 (numberOfSections, tableView, 2개 (cell 구성 _까지 3개 작동)
-        //
+        tvListView.reloadData()
     }
 
     //
     func dataCrawling() {
             let mainUrl = "https://www.rottentomatoes.com/top/bestofrt/?year=2019"
-            guard let main = URL(string: mainUrl) else { return print("Error : \(mainUrl) doesn't seem to be a valid URL")
+            guard let main = URL(string: mainUrl) else { print("Error : \(mainUrl) doesn't seem to be a valid URL")
                 return
             }
             do {

@@ -1,23 +1,25 @@
 //
 //  TableViewController.swift
-//  ServerJson_01
+//  ServerJson_02
 //
-//  Created by HyoEun Kwon on 2021/07/27.
+//  Created by HyoEun Kwon on 2021/07/28.
 //
 
 import UIKit
 
 class TableViewController: UITableViewController {
 
-    //table view 연결
+    // 앱 종료하지 않고 다른거 봤을때 없어지는것 : weak
+    // 앱을 종료해야 없어지는 것: strong
     @IBOutlet var listTableView: UITableView!
+    
     //Global Protocol
     var feedItem: NSArray = NSArray() //NSArray는 Int, String 다 가능하므로!, 배열의 제일 큰 애 _ NS : Next Step
     //뮤터블가능
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         //Instance (Object Instance 객체)
         let jsonModel = JsonModel() //protocol 과 class 가 들어가있음,
@@ -27,7 +29,11 @@ class TableViewController: UITableViewController {
         //extension --> 부터해주자
         
         
-
+        // Cell의 크기를 정한다.
+        listTableView.rowHeight = 124
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -44,22 +50,24 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return feedItem.count //feedItem으로 item값이 들어오므로
+        return feedItem.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { //UITableViewCell -> default 값을 쓰는것 : Custom 으로 만들수 있음!
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)//ios는 처음부터 java의 리사이클러뷰임!
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! TableViewCell //default가 아닌 나만의 커스텀을 위해서는 as! TableViewCell 잊지말기 *****
+        // Configure the cell...
+        
         // Configure the cell...
         let item: DBModel = feedItem[indexPath.row] as! DBModel //feedItem의 몇번째를 DBModel로 타입을 변경
         // 현재 feedItem 은 0번 1번 각 두줄! (각 줄에는 scode, sname, sdept, sphone) 으로 4개가 들어가 있음
         // DBModel 로 변경해야 .sname 이런식으로 불러서 사용 가능해짐!
         //item값이 들어가있음
         
-        cell.textLabel?.text = "성명 : \(item.sname!)"
-        cell.detailTextLabel?.text = "학번 : \(item.scode!)"
-
+        cell.lblCode.text = "학번 : \(item.scode!)" // cell 안에있는 00라벨에다가 넣어줘!
+        cell.lblName.text = "성명 : \(item.sname!)"
+        cell.lblDept.text = "전공 : \(item.sdept!)"
+        cell.lblPhone.text = "전화 : \(item.sphone!)"
         return cell
     }
     
@@ -110,7 +118,6 @@ class TableViewController: UITableViewController {
     */
 
 }
-
 
 extension TableViewController: JsonModelProtocol{
     func itemDownloaded(items: NSArray) { //NSArray(배열 중 제일큰것) : 타입 꼭 지정안해도 ok..!? -> String과 Int 같이 쓸 수 있음

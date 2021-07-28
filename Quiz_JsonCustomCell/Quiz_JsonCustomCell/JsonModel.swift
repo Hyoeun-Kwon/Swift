@@ -1,11 +1,10 @@
 //
 //  JsonModel.swift
-//  ServerJson_01
+//  Quiz_JsonCustomCell
 //
-//  Created by HyoEun Kwon on 2021/07/27.
+//  Created by HyoEun Kwon on 2021/07/28.
 //
 
-// 불러오는 class 로 json data를 넘겨주는 방법
 import Foundation
 
 protocol JsonModelProtocol{
@@ -19,7 +18,7 @@ protocol JsonModelProtocol{
 class JsonModel{
     //jsonmodel 이 portocol 을 가지고 있음
     var delegate: JsonModelProtocol! // data를 받아오는걸 연결하나!? ___( 나 )
-    let urlPath = "http://192.168.245.130:8080/ios/student.json"
+    let urlPath = "http://192.168.171.130:8080/ios/student.json"
     
     func downloadItems(){
         // 서버에서 데이터 받아오는 동안 다른 일을 해야지!
@@ -99,5 +98,6 @@ class JsonModel{
         
     }
 }
+
 
 

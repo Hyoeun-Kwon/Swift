@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     func appendImgViewList(){
         for i in 1...6{
-            var url = URL(string: "http://192.168.245.130:8080/ios/flower_0\(i).png" )
+            var url = URL(string: "http://192.168.35.241:8080/ios/flower_0\(i).png" )
             let data = try? Data(contentsOf: url!)
             imgLists.append(UIImage(data: data!)!)
         }

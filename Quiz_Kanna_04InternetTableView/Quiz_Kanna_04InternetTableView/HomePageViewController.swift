@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import WebKit
+import WebKit // <<<< WebView 사용
 
 class HomePageViewController: UIViewController {
     
@@ -22,10 +22,10 @@ class HomePageViewController: UIViewController {
         super.viewDidLoad()
         
         
-       loadWebPage(url: receiveItem)
-        
-        myWebView.navigationDelegate = self
+        loadWebPage(url: receiveItem)
         lblWeb.text = receiveItem
+        myWebView.navigationDelegate = self
+        
         // Do any additional setup after loading the view.
     }
     

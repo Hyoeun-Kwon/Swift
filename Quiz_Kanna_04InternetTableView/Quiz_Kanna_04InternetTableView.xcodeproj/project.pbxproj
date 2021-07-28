@@ -76,12 +76,12 @@
 			children = (
 				99AFADB126AE954000176E3D /* AppDelegate.swift */,
 				99AFADB326AE954000176E3D /* SceneDelegate.swift */,
+				9971DD0926AE96A6006F96E6 /* TableViewController.swift */,
+				997C988726AE9EF500F40650 /* HomePageViewController.swift */,
 				99AFADB726AE954000176E3D /* Main.storyboard */,
 				99AFADBA26AE954100176E3D /* Assets.xcassets */,
 				99AFADBC26AE954100176E3D /* LaunchScreen.storyboard */,
 				99AFADBF26AE954100176E3D /* Info.plist */,
-				9971DD0926AE96A6006F96E6 /* TableViewController.swift */,
-				997C988726AE9EF500F40650 /* HomePageViewController.swift */,
 			);
 			path = Quiz_Kanna_04InternetTableView;
 			sourceTree = "<group>";

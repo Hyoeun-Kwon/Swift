@@ -1,14 +1,17 @@
 //
 //  DBModel.swift
-//  ServerJson_01
+//  ServerJson_02
 //
-//  Created by HyoEun Kwon on 2021/07/27.
+//  Created by HyoEun Kwon on 2021/07/28.
 //
 
 import Foundation
-// 데이터 불러오는 것 
+
+// 데이터 불러오는 것
 class DBModel: NSObject{
     //그냥 써도 상관없으나 타입주는게 좋다! NSObject 가 가장 큼
+    
+    // Database 순서가 Json 순서임,!? 
     
     // Property : 변수
     var scode: String?
